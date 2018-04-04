@@ -89,11 +89,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dist\app.bundle.js" />
+    <None Include=".eslintrc.json" />
+    <Content Include="Dist\styles.css" />
+    <Content Include=".gitignore" />
     <Content Include="Global.asax" />
+    <Content Include="karma.conf.js" />
+    <Content Include="spec\helpers\reporter.js" />
+    <Content Include="Src\Content\images\subfolder\th2.jpg" />
+    <Content Include="Src\Content\images\th.jpg" />
+    <Content Include="Src\Content\images\th2.jpg" />
+    <Content Include="Src\Scripts\index.js" />
+    <Content Include="Src\Scripts\tests\utils\mathUtil.tests.js" />
+    <Content Include="Src\Scripts\tests\utils\stringUtils.tests.js" />
+    <Content Include="Src\Scripts\utils\mathUtil.js" />
+    <Content Include="Src\Scripts\utils\stringUtils.js" />
     <Content Include="Web.config" />
+    <Content Include="webpack.config.js" />
+    <Content Include="Dist\app.bundle.js.map" />
+    <Content Include="postcss.config.js" />
+    <Content Include="Dist\styles.css.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -101,7 +120,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
+    <Content Include="package.json" />
+    <Content Include="package-lock.json" />
     <None Include="packages.config" />
+    <Content Include="Src\Content\index.scss" />
+    <Content Include="Src\Content\colours.scss" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="spec\support\jasmine.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

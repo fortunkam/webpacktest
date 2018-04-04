@@ -1,0 +1,12 @@
+﻿@import 'colours';
+
+.roundedBox {
+    border-radius:5px;
+    width:300px;
+    height:200px;
+    box-shadow: rgb(128, 128, 128) -5px -5px inset;
+    border:1px #ccc solid  
+}
+p {
+    color: $red;
+}
