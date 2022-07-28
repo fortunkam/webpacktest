@@ -1,12 +1,4 @@
-.roundedBox {
-  border-radius: 5px;
-  width: 300px;
-  height: 200px;
-  box-shadow: gray -5px -5px inset;
-  border: 1px #ccc solid; }
-
-p {
-  color: red; }
+.roundedBox{border-radius:5px;width:300px;height:200px;box-shadow:gray -5px -5px inset;border:1px #ccc solid}p{color:red}
 
 
 /*# sourceMappingURL=styles.css.map*/

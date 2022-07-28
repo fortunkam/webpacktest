@@ -2,6 +2,7 @@
 const { resolve } = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
     //The current location relative to this file
@@ -38,7 +39,7 @@ module.exports = {
                             //in Js files without collisions (css modules)
                             modules: false,
                             sourceMap: true,
-                            importLoader: 2
+                            importLoaders: 2
                         }
                     },
                     {
@@ -56,25 +57,20 @@ module.exports = {
 
                 ]
             },
-            //ESLint - check JS files against "standard" code conventions
-            //Configured in .eslintrc file
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader'
-            },
             //Babel loader - convert "Modern" JS to browser compliant JS
             {
                 //For anything matching this regex
                 test: /\.js$/,
                 //excluding this folder
                 exclude: /node_modules/,
-                //run them through the babel loader
-                loader: 'babel-loader',  //Uses the section defined in package.json (babel/presets)
-                query: {
-                    //Cache the results if unchanged in subsequent loads
-                    cacheDirectory: true
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory : true,
+                        presets: [
+                            ['@babel/preset-env', { targets: "defaults" }]
+                          ]
+                    }
                 }
             }
         ]
@@ -83,13 +79,21 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "styles.css"
         }),
-        new CopyWebpackPlugin([
-            {
-                from: 'images/**/*.*',
-                to: '[path][name].[ext]',
-                force: true
-            }
-        ], { debug: 'debug', context : "Content" })
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: 'images/**/*.*',
+                    to: '[path][name].[ext]',
+                    force: true,
+                    context: 'Content'
+                }
+            ]
+        }),
+        new ESLintPlugin({
+            extensions: 'js',
+            exclude: '/node_modules/',
+            fix: true
+        })
     ]
 
 };
